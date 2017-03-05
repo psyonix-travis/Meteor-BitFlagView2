@@ -1,10 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
- 
-import '../imports/startup/accounts-config.js';
+
 import App from '../imports/ui/App.jsx';
- 
+
+let db = require('../imports/startup/db.json');
+
 Meteor.startup(() => {
-  render(<App />, document.getElementById('render-target'));
+  render(<App data={db} />, document.getElementById('render-target'));
 });

@@ -1,0 +1,849 @@
+{
+   "categories": [
+     {
+       "label": "EPropertyFlags",
+         "flags": [
+           {
+               "label": "CPF_Edit",
+               "value": "0x0000000000000001",
+               "comment": "Property is user-settable in the editor."
+            },
+            {
+               "label": "CPF_Const",
+               "value": "0x0000000000000002",
+               "comment": "Actor's property always matches class's default actor property."
+            },
+            {
+               "label": "CPF_Input",
+               "value": "0x0000000000000004",
+               "comment": "Variable is writable by the input system."
+            },
+            {
+               "label": "CPF_ExportObject",
+               "value": "0x0000000000000008",
+               "comment": "Object can be exported with actor."
+            },
+            {
+               "label": "CPF_OptionalParm",
+               "value": "0x0000000000000010",
+               "comment": "Optional parameter (if CPF_Param is set)."
+            },
+            {
+               "label": "CPF_Net",
+               "value": "0x0000000000000020",
+               "comment": "Property is relevant to network replication."
+            },
+            {
+               "label": "CPF_EditFixedSize",
+               "value": "0x0000000000000040",
+               "comment": "Indicates that elements of an array can be modified, but its size cannot be changed."
+            },
+            {
+               "label": "CPF_Parm",
+               "value": "0x0000000000000080",
+               "comment": "Function/When call parameter."
+            },
+            {
+               "label": "CPF_OutParm",
+               "value": "0x0000000000000100",
+               "comment": "Value is copied out after function call."
+            },
+            {
+               "label": "CPF_SkipParm",
+               "value": "0x0000000000000200",
+               "comment": "Property is a short-circuitable evaluation function parm."
+            },
+            {
+               "label": "CPF_ReturnParm",
+               "value": "0x0000000000000400",
+               "comment": "Return value."
+            },
+            {
+               "label": "CPF_CoerceParm",
+               "value": "0x0000000000000800",
+               "comment": "Coerce args into this function parameter."
+            },
+            {
+               "label": "CPF_Native",
+               "value": "0x0000000000001000",
+               "comment": "Property is native: C++ code is responsible for serializing it."
+            },
+            {
+               "label": "CPF_Transient",
+               "value": "0x0000000000002000",
+               "comment": "Property is transient: shouldn't be saved, zero-filled at load time."
+            },
+            {
+               "label": "CPF_Config",
+               "value": "0x0000000000004000",
+               "comment": "Property should be loaded/saved as permanent profile."
+            },
+            {
+               "label": "CPF_Localized",
+               "value": "0x0000000000008000",
+               "comment": "Property should be loaded as localizable text."
+            },
+            {
+               "label": "Unused",
+               "value": "0x0000000000010000",
+               "comment": "Unused."
+            },
+            {
+               "label": "CPF_EditConst",
+               "value": "0x0000000000020000",
+               "comment": "Property is uneditable in the editor."
+            },
+            {
+               "label": "CPF_GlobalConfig",
+               "value": "0x0000000000040000",
+               "comment": "Load config from base class, not subclass."
+            },
+            {
+               "label": "CPF_Component",
+               "value": "0x0000000000080000",
+               "comment": "Property containts component references."
+            },
+            {
+               "label": "CPF_AlwaysInit",
+               "value": "0x0000000000100000",
+               "comment": "Property should never be exported as NoInit."
+            },
+            {
+               "label": "CPF_DuplicateTransient",
+               "value": "0x0000000000200000",
+               "comment": "Property should always be reset to the default value during any type of duplication (copy/paste, binary duplication, etc.)."
+            },
+            {
+               "label": "CPF_NeedCtorLink",
+               "value": "0x0000000000400000",
+               "comment": "Fields need construction/destruction."
+            },
+            {
+               "label": "CPF_NoExport",
+               "value": "0x0000000000800000",
+               "comment": "Property should not be exported to the native class header file."
+            },
+            {
+               "label": "CPF_NoImport",
+               "value": "0x0000000001000000",
+               "comment": "Property should not be imported when creating an object from text (copy/paste)."
+            },
+            {
+               "label": "CPF_NoClear",
+               "value": "0x0000000002000000",
+               "comment": "Hide clear (and browse) button."
+            },
+            {
+               "label": "CPF_EditInline",
+               "value": "0x0000000004000000",
+               "comment": "Edit this object reference inline."
+            },
+            {
+               "label": "CPF_EditInlineUse",
+               "value": "0x0000000010000000",
+               "comment": "EditInline with Use button."
+            },
+            {
+               "label": "CPF_Deprecated",
+               "value": "0x0000000020000000",
+               "comment": "Property is deprecated.  Read it from an archive, but don't save it."
+            },
+            {
+               "label": "CPF_DataBinding",
+               "value": "0x0000000040000000",
+               "comment": "Indicates that this property should be exposed to data stores."
+            },
+            {
+               "label": "CPF_SerializeText",
+               "value": "0x0000000080000000",
+               "comment": "Native property should be serialized as text (ImportText, ExportText)."
+            },
+            {
+               "label": "CPF_RepNotify",
+               "value": "0x0000000100000000",
+               "comment": "Notify actors when a property is replicated."
+            },
+            {
+               "label": "CPF_Interp",
+               "value": "0x0000000200000000",
+               "comment": "interpolatable property for use with matinee."
+            },
+            {
+               "label": "CPF_NonTransactional",
+               "value": "0x0000000400000000",
+               "comment": "Property isn't transacted."
+            },
+            {
+               "label": "CPF_EditorOnly",
+               "value": "0x0000000800000000",
+               "comment": "Property should only be loaded in the editor."
+            },
+            {
+               "label": "CPF_NotForConsole",
+               "value": "0x0000001000000000",
+               "comment": "Property should not be loaded on console (or be a console cooker commandlet)."
+            },
+            {
+               "label": "CPF_RepRetry",
+               "value": "0x0000002000000000",
+               "comment": "retry replication of this property if it fails to be fully sent (e.g. object references not yet available to serialize over the network)."
+            },
+            {
+               "label": "CPF_PrivateWrite",
+               "value": "0x0000004000000000",
+               "comment": "property is const outside of the class it was declared in."
+            },
+            {
+               "label": "CPF_ProtectedWrite",
+               "value": "0x0000008000000000",
+               "comment": "property is const outside of the class it was declared in and subclasses."
+            },
+            {
+               "label": "CPF_ArchetypeProperty",
+               "value": "0x0000010000000000",
+               "comment": "property should be ignored by archives which have ArIgnoreArchetypeRef set."
+            },
+            {
+               "label": "CPF_EditHide",
+               "value": "0x0000020000000000",
+               "comment": "property should never be shown in a properties window."
+            },
+            {
+               "label": "CPF_EditTextBox",
+               "value": "0x0000040000000000",
+               "comment": "property can be edited using a text dialog box."
+            },
+            {
+               "label": "CPF_TextArchetype",
+               "value": "0x0000080000000000",
+               "comment": "Psyonix: Property assumed to contain a path to an xml archetype (TextArchetype), also assumes const."
+            },
+            {
+               "label": "CPF_AutoCastParm",
+               "value": "0x0000400000000000",
+               "comment": "Psyonix: Auto cast object parameters to their sub type."
+            },
+            {
+               "label": "CPF_CrossLevelPassive",
+               "value": "0x0000100000000000",
+               "comment": "property can point across levels, and will be serialized properly, but assumes it's target exists in-game (non-editor)."
+            },
+            {
+               "label": "CPF_CrossLevelActive",
+               "value": "0x0000200000000000",
+               "comment": "property can point across levels, and will be serialized properly, and will be updated when the target is streamed in/out."
+            }
+         ]
+     },
+      {
+         "label": "EPackageFlags",
+         "flags": [
+            {
+               "label": "PKG_AllowDownload",
+               "value": "0x00000001",
+               "comment": "Allow downloading package."
+            },
+            {
+               "label": "PKG_ClientOptional",
+               "value": "0x00000002",
+               "comment": "Purely optional for clients."
+            },
+            {
+               "label": "PKG_ServerSideOnly",
+               "value": "0x00000004",
+               "comment": "Only needed on the server side."
+            },
+            {
+               "label": "PKG_Cooked",
+               "value": "0x00000008",
+               "comment": "Whether this package has been cooked for the target platform."
+            },
+            {
+               "label": "PKG_Unsecure",
+               "value": "0x00000010",
+               "comment": "Not trusted."
+            },
+            {
+               "label": "PKG_SavedWithNewerVersion",
+               "value": "0x00000020",
+               "comment": "Package was saved with newer version."
+            },
+            {
+               "label": "PKG_ArchetypesPackage",
+               "value": "0x00000040",
+               "comment": "PSYONIX: Package was generated by text archetypes system (slightly different rules concerning GUID creation)"
+            },
+            {
+               "label": "PKG_HasAESBlock",
+               "value": "0x00000080",
+               "comment": "PSYONIX: Steam patching, package has AES block that needs decrypting before header can be read"
+            },
+            {
+               "label": "PKG_StorePatchable",
+               "value": "0x00000200",
+               "comment": "PSYONIX: PS4 patching, package has header padding but not AES encryption"
+            },
+            {
+               "label": "PKG_HeaderOnly",
+               "value": "0x00000400",
+               "comment": "PSYONIX: for patching.  This file only contains the header information (none of the object data). useful for make net-compatible patches when the data isn't necessary."
+            },
+            {
+               "label": "PKG_Need",
+               "value": "0x00008000",
+               "comment": "Client needs to download this package."
+            },
+            {
+               "label": "PKG_Compiling",
+               "value": "0x00010000",
+               "comment": "package is currently being compiled"
+            },
+            {
+               "label": "PKG_ContainsMap",
+               "value": "0x00020000",
+               "comment": "Set if the package contains a ULevel/ UWorld object"
+            },
+            {
+               "label": "PKG_Trash",
+               "value": "0x00040000",
+               "comment": "Set if the package was loaded from the trashcan"
+            },
+            {
+               "label": "PKG_DisallowLazyLoading",
+               "value": "0x00080000",
+               "comment": "Set if the archive serializing this package cannot use lazy loading"
+            },
+            {
+               "label": "PKG_PlayInEditor",
+               "value": "0x00100000",
+               "comment": "Set if the package was created for the purpose of PIE"
+            },
+            {
+               "label": "PKG_ContainsScript",
+               "value": "0x00200000",
+               "comment": "Package is allowed to contain UClasses and unrealscript"
+            },
+            {
+               "label": "PKG_ContainsDebugInfo",
+               "value": "0x00400000",
+               "comment": "Package contains debug info (for UDebugger)"
+            },
+            {
+               "label": "PKG_RequireImportsAlreadyLoaded",
+               "value": "0x00800000",
+               "comment": "Package requires all its imports to already have been loaded"
+            },
+            {
+               "label": "PKG_StoreCompressed",
+               "value": "0x02000000",
+               "comment": "Package is being stored compressed, requires archive support for compression"
+            },
+            {
+               "label": "PKG_StoreFullyCompressed",
+               "value": "0x04000000",
+               "comment": "Package is serialized normally, and then fully compressed after (must be decompressed before LoadPackage is called)"
+            },
+            {
+               "label": "PKG_ContainsFaceFXData",
+               "value": "0x10000000",
+               "comment": "Package contains FaceFX assets and/or animsets"
+            },
+            {
+               "label": "PKG_NoExportAllowed",
+               "value": "0x20000000",
+               "comment": "Package was NOT created by a modder.  Internal data not for export"
+            },
+            {
+               "label": "PKG_StrippedSource",
+               "value": "0x40000000",
+               "comment": "Source has been removed to compress the package size"
+            },
+            {
+               "label": "PKG_FilterEditorOnly",
+               "value": "0x80000000",
+               "comment": "Package has editor-only data filtered"
+            }
+         ]
+      },
+      {
+        "label": "EClassFlags",
+        "flags": [
+           {
+              "label": "CLASS_None",
+              "value": "0x00000000",
+              "comment": ""
+           },
+           {
+              "label": "CLASS_Abstract",
+              "value": "0x00000001",
+              "comment": "Class is abstract and can't be instantiated directly."
+           },
+           {
+              "label": "CLASS_Compiled",
+              "value": "0x00000002",
+              "comment": "Script has been compiled successfully."
+           },
+           {
+              "label": "CLASS_Config",
+              "value": "0x00000004",
+              "comment": "Load object configuration at construction time."
+           },
+           {
+              "label": "CLASS_Transient",
+              "value": "0x00000008",
+              "comment": "This object type can't be saved; null it out at save time."
+           },
+           {
+              "label": "CLASS_Parsed",
+              "value": "0x00000010",
+              "comment": "Successfully parsed."
+           },
+           {
+              "label": "CLASS_Localized",
+              "value": "0x00000020",
+              "comment": "Class contains localized text."
+           },
+           {
+              "label": "CLASS_SafeReplace",
+              "value": "0x00000040",
+              "comment": "Objects of this class can be safely replaced with default or NULL."
+           },
+           {
+              "label": "CLASS_Native",
+              "value": "0x00000080",
+              "comment": "Class is a native class - native interfaces will have CLASS_Native set, but not RF_Native"
+           },
+           {
+              "label": "CLASS_NoExport",
+              "value": "0x00000100",
+              "comment": "Don't export to C++ header."
+           },
+           {
+              "label": "CLASS_Placeable",
+              "value": "0x00000200",
+              "comment": "Allow users to create in the editor."
+           },
+           {
+              "label": "CLASS_PerObjectConfig",
+              "value": "0x00000400",
+              "comment": "Handle object configuration on a per-object basis, rather than per-class."
+           },
+           {
+              "label": "CLASS_NativeReplication",
+              "value": "0x00000800",
+              "comment": "Replication handled in C++."
+           },
+           {
+              "label": "CLASS_EditInlineNew",
+              "value": "0x00001000",
+              "comment": "Class can be constructed from editinline New button."
+           },
+           {
+              "label": "CLASS_CollapseCategories",
+              "value": "0x00002000",
+              "comment": "Display properties in the editor without using categories."
+           },
+           {
+              "label": "CLASS_Interface",
+              "value": "0x00004000",
+              "comment": "Class is an interface"
+           },
+           {
+              "label": "CLASS_HasInstancedProps",
+              "value": "0x00200000",
+              "comment": "Indicates that this class contains object properties which are marked 'instanced' (or editinline export).  Set by the script compiler after all properties in the class have been parsed.  Used by the loading code as an optimization to attempt to instance newly added properties only for relevant classes"
+           },
+           {
+              "label": "CLASS_NeedsDefProps",
+              "value": "0x00400000",
+              "comment": "Class needs its defaultproperties imported"
+           },
+           {
+              "label": "CLASS_HasComponents",
+              "value": "0x00800000",
+              "comment": "Class has component properties."
+           },
+           {
+              "label": "CLASS_Hidden",
+              "value": "0x01000000",
+              "comment": "Don't show this class in the editor class browser or edit inline new menus."
+           },
+           {
+              "label": "CLASS_Deprecated",
+              "value": "0x02000000",
+              "comment": "Don't save objects of this class when serializing"
+           },
+           {
+              "label": "CLASS_HideDropDown",
+              "value": "0x04000000",
+              "comment": "Class not shown in editor drop down for class selection"
+           },
+           {
+              "label": "CLASS_Exported",
+              "value": "0x08000000",
+              "comment": "Class has been exported to a header file"
+           },
+           {
+              "label": "CLASS_Intrinsic",
+              "value": "0x10000000",
+              "comment": "Class has no unrealscript counter-part"
+           },
+           {
+              "label": "CLASS_NativeOnly",
+              "value": "0x20000000",
+              "comment": "Properties in this class can only be accessed from native code"
+           },
+           {
+              "label": "CLASS_PerObjectLocalized",
+              "value": "0x40000000",
+              "comment": "Handle object localization on a per-object basis, rather than per-class."
+           },
+           {
+              "label": "CLASS_HasCrossLevelRefs",
+              "value": "0x80000000",
+              "comment": "This class has properties that are marked with CPF_CrossLevel"
+           },
+           {
+              "label": "CLASS_IsAUProperty",
+              "value": "0x00008000",
+              "comment": "deprecated - these values now match the values of the EClassCastFlags enum"
+           },
+           {
+              "label": "CLASS_IsAUObjectProperty",
+              "value": "0x00010000",
+              "comment": "deprecated - these values now match the values of the EClassCastFlags enum"
+           },
+           {
+              "label": "CLASS_IsAUBoolProperty",
+              "value": "0x00020000",
+              "comment": "deprecated - these values now match the values of the EClassCastFlags enum"
+           },
+           {
+              "label": "CLASS_IsAUState",
+              "value": "0x00040000",
+              "comment": "deprecated - these values now match the values of the EClassCastFlags enum"
+           },
+           {
+              "label": "CLASS_IsAUFunction",
+              "value": "0x00080000",
+              "comment": "deprecated - these values now match the values of the EClassCastFlags enum"
+           },
+           {
+              "label": "CLASS_IsAUStructProperty",
+              "value": "0x00100000",
+              "comment": "deprecated - these values now match the values of the EClassCastFlags enum"
+           },
+           {
+              "label": "CLASS_AllFlags",
+              "value": "0xFFFFFFFF",
+              "comment": ""
+           }
+         ]
+      },
+      {
+        "label": "EObjectFlags",
+        "flags": [
+           {
+              "label": "",
+              "value": "0x0000000000000001",
+              "comment": "unused"
+           },
+           {
+              "label": "RF_InSingularFunc",
+              "value": "0x0000000000000002",
+              "comment": "In a singular function."
+           },
+           {
+              "label": "RF_StateChanged",
+              "value": "0x0000000000000004",
+              "comment": "Object did a state change."
+           },
+           {
+              "label": "RF_DebugPostLoad",
+              "value": "0x0000000000000008",
+              "comment": "For debugging PostLoad calls."
+           },
+           {
+              "label": "RF_DebugSerialize",
+              "value": "0x0000000000000010",
+              "comment": "For debugging Serialize calls."
+           },
+           {
+              "label": "RF_DebugFinishDestroyed",
+              "value": "0x0000000000000020",
+              "comment": "For debugging FinishDestroy calls."
+           },
+           {
+              "label": "RF_EdSelected",
+              "value": "0x0000000000000040",
+              "comment": "Object is selected in one of the editors browser windows."
+           },
+           {
+              "label": "RF_ZombieComponent",
+              "value": "0x0000000000000080",
+              "comment": "This component's template was deleted, so should not be used."
+           },
+           {
+              "label": "RF_Protected",
+              "value": "0x0000000000000100",
+              "comment": "Property is protected (may only be accessed from its owner class or subclasses)"
+           },
+           {
+              "label": "RF_ClassDefaultObject",
+              "value": "0x0000000000000200",
+              "comment": "this object is its class's default object"
+           },
+           {
+              "label": "RF_ArchetypeObject",
+              "value": "0x0000000000000400",
+              "comment": "this object is a template for another object - treat like a class default object"
+           },
+           {
+              "label": "RF_ForceTagExp",
+              "value": "0x0000000000000800",
+              "comment": "Forces this object to be put into the export table when saving a package regardless of outer"
+           },
+           {
+              "label": "RF_TokenStreamAssembled",
+              "value": "0x0000000000001000",
+              "comment": "Set if reference token stream has already been assembled"
+           },
+           {
+              "label": "RF_MisalignedObject",
+              "value": "0x0000000000002000",
+              "comment": "Object's size no longer matches the size of its C++ class (only used during make, for native classes whose properties have changed)"
+           },
+           {
+              "label": "RF_RootSet",
+              "value": "0x0000000000004000",
+              "comment": "Object will not be garbage collected, even if unreferenced."
+           },
+           {
+              "label": "RF_BeginDestroyed",
+              "value": "0x0000000000008000",
+              "comment": "BeginDestroy has been called on the object."
+           },
+           {
+              "label": "RF_FinishDestroyed",
+              "value": "0x0000000000010000",
+              "comment": "FinishDestroy has been called on the object."
+           },
+           {
+              "label": "RF_DebugBeginDestroyed",
+              "value": "0x0000000000020000",
+              "comment": "Whether object is rooted as being part of the root set (garbage collection)"
+           },
+           {
+              "label": "RF_MarkedByCooker",
+              "value": "0x0000000000040000",
+              "comment": "Marked by content cooker."
+           },
+           {
+              "label": "RF_LocalizedResource",
+              "value": "0x0000000000080000",
+              "comment": "Whether resource object is localized."
+           },
+           {
+              "label": "RF_InitializedProps",
+              "value": "0x0000000000100000",
+              "comment": "whether InitProperties has been called on this object"
+           },
+           {
+              "label": "RF_PendingFieldPatches",
+              "value": "0x0000000000200000",
+              "comment": "@script patcher: indicates that this struct will receive additional member properties from the script patcher"
+           },
+           {
+              "label": "RF_IsCrossLevelReferenced",
+              "value": "0x0000000000400000",
+              "comment": "This object has been pointed to by a cross-level reference, and therefore requires additional cleanup upon deletion"
+           },
+           {
+              "label": "",
+              "value": "0x0000000000800000",
+              "comment": "unused"
+           },
+           {
+              "label": "",
+              "value": "0x0000000001000000",
+              "comment": "unused"
+           },
+           {
+              "label": "RF_Template",
+              "value": "0x0000000002000000",
+              "comment": "object is part of a CDO or archetype"
+           },
+           {
+              "label": "RF_SubscribedToEvents",
+              "value": "0x0000000010000000",
+              "comment": "object has an entry in ObjectSubscribedEventsMap"
+           },
+           {
+              "label": "RF_Saved",
+              "value": "0x0000000080000000",
+              "comment": "Object has been saved via SavePackage. Temporary."
+           },
+           {
+              "label": "RF_Transactional",
+              "value": "0x0000000100000000",
+              "comment": "Object is transactional."
+           },
+           {
+              "label": "RF_Unreachable",
+              "value": "0x0000000200000000",
+              "comment": "Object is not reachable on the object graph."
+           },
+           {
+              "label": "RF_Public",
+              "value": "0x0000000400000000",
+              "comment": "Object is visible outside its package."
+           },
+           {
+              "label": "RF_TagImp",
+              "value": "0x0000000800000000",
+              "comment": "Temporary import tag in load/save."
+           },
+           {
+              "label": "RF_TagExp",
+              "value": "0x0000001000000000",
+              "comment": "Temporary export tag in load/save."
+           },
+           {
+              "label": "RF_Obsolete",
+              "value": "0x0000002000000000",
+              "comment": "Object marked as obsolete and should be replaced."
+           },
+           {
+              "label": "RF_TagGarbage",
+              "value": "0x0000004000000000",
+              "comment": "Check during garbage collection."
+           },
+           {
+              "label": "RF_DisregardForGC",
+              "value": "0x0000008000000000",
+              "comment": "Object is being disregard for GC as its static and itself and all references are always loaded."
+           },
+           {
+              "label": "RF_PerObjectLocalized",
+              "value": "0x0000010000000000",
+              "comment": "Object is localized by instance name, not by class."
+           },
+           {
+              "label": "RF_NeedLoad",
+              "value": "0x0000020000000000",
+              "comment": "During load, indicates object needs loading."
+           },
+           {
+              "label": "RF_AsyncLoading",
+              "value": "0x0000040000000000",
+              "comment": "Object is being asynchronously loaded."
+           },
+           {
+              "label": "RF_NeedPostLoadSubobjects",
+              "value": "0x0000080000000000",
+              "comment": "During load, indicates that the object still needs to instance subobjects and fixup serialized component references"
+           },
+           {
+              "label": "RF_Suppress",
+              "value": "0x0000100000000000",
+              "comment": "@warning: Mirrored in UnName.h. Suppressed log name."
+           },
+           {
+              "label": "RF_InEndState",
+              "value": "0x0000200000000000",
+              "comment": "Within an EndState call."
+           },
+           {
+              "label": "RF_Transient",
+              "value": "0x0000400000000000",
+              "comment": "Don't save object."
+           },
+           {
+              "label": "RF_Cooked",
+              "value": "0x0000800000000000",
+              "comment": "Whether the object has already been cooked"
+           },
+           {
+              "label": "RF_LoadForClient",
+              "value": "0x0001000000000000",
+              "comment": "In-file load for client."
+           },
+           {
+              "label": "RF_LoadForServer",
+              "value": "0x0002000000000000",
+              "comment": "In-file load for server."
+           },
+           {
+              "label": "RF_LoadForEdit",
+              "value": "0x0004000000000000",
+              "comment": "In-file load for editor."
+           },
+           {
+              "label": "RF_Standalone",
+              "value": "0x0008000000000000",
+              "comment": "Keep object around for editing even if unreferenced."
+           },
+           {
+              "label": "RF_NotForClient",
+              "value": "0x0010000000000000",
+              "comment": "Don't load this object for the game client."
+           },
+           {
+              "label": "RF_NotForServer",
+              "value": "0x0020000000000000",
+              "comment": "Don't load this object for the game server."
+           },
+           {
+              "label": "RF_NotForEdit",
+              "value": "0x0040000000000000",
+              "comment": "Don't load this object for the game editor."
+           },
+           {
+              "label": "",
+              "value": "0x0080000000000000",
+              "comment": "unused"
+           },
+           {
+              "label": "RF_NeedPostLoad",
+              "value": "0x0100000000000000",
+              "comment": "Object needs to be postloaded."
+           },
+           {
+              "label": "RF_HasStack",
+              "value": "0x0200000000000000",
+              "comment": "Has execution stack."
+           },
+           {
+              "label": "RF_Native",
+              "value": "0x0400000000000000",
+              "comment": "Native (UClass only)."
+           },
+           {
+              "label": "RF_Marked",
+              "value": "0x0800000000000000",
+              "comment": "Marked (for debugging)."
+           },
+           {
+              "label": "RF_ErrorShutdown",
+              "value": "0x1000000000000000",
+              "comment": "ShutdownAfterError called."
+           },
+           {
+              "label": "RF_PendingKill",
+              "value": "0x2000000000000000",
+              "comment": "Objects that are pending destruction (invalid for gameplay but valid objects)"
+           },
+           {
+              "label": "RF_MarkedByCookerTemp",
+              "value": "0x4000000000000000",
+              "comment": "Temporarily marked by content cooker - should be cleared."
+           },
+           {
+              "label": "RF_CookedStartupObject",
+              "value": "0x8000000000000000",
+              "comment": "This object was cooked into a startup package."
+           }
+         ]
+      }
+   ]
+}

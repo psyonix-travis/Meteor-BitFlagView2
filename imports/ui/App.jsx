@@ -1,97 +1,105 @@
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
- 
-import { Tasks } from '../api/tasks.js';
 
-import Task from './Task.jsx';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
- 
+import bigInt from "../api/BigInteger.js";
+import hexToDec from "../api/HexToDec.js";
+
+import Category from './Category.jsx';
+
 // App component - represents the whole app
-class App extends Component {
+export default class App extends Component {
+    constructor(props) {
+        super(props);
 
-  constructor(props) {
-    super(props);
- 
-    this.state = {
-      hideCompleted: false,
-    };
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
- 
-    // Find the text field via the React ref
-    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
- 
-    Tasks.insert({
-      text,
-      createdAt: new Date(), // current time
-    });
- 
-    // Clear form
-    ReactDOM.findDOMNode(this.refs.textInput).value = '';
-  }
-
-  toggleHideCompleted() {
-    this.setState({
-      hideCompleted: !this.state.hideCompleted,
-    });
-  }
-
-  renderTasks() {
-    let filteredTasks = this.props.tasks;
-    if (this.state.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
+        this.state = {
+            selectedCategory: this.props.data.categories.length ? this.props.data.categories[0].label : "",
+            input:bigInt.bigInt(0)
+        };
     }
-    return filteredTasks.map((task) => (
-      <Task key={task._id} task={task} />
-    ));
+
+    handleInput(e) {
+        e.preventDefault();
+        let inStr = e.target.value;
+        let newValue = (inStr.substring(0, 2) === '0x') ? hexToDec(inStr) : inStr;
+        this.setState({input: bigInt.bigInt(newValue)});
+    }
+
+    updateCategory(e) {
+        let category = this.props.data.categories.find((category) => {
+            return category.label == e.target.value;
+        });
+        if ( category != null )
+        {
+            this.setState({selectedCategory: category.label});
+        }
+    }
+
+    renderSelectedCategory() {
+        let category = this.props.data.categories.find((category) => {
+            return category.label == this.state.selectedCategory;
+        });
+
+        return (
+            <Category
+                category={category}
+                input={this.state.input}
+            />
+        );
+    };
+
+  renderCategories() {
+	return this.props.data.categories.map((category, i) => {
+	  return (
+		<option key={i}>{category.label}</option>
+	  );
+	});
   }
- 
+
   render() {
-    return (
-      <div className="container">
-        <header>
-          <h1>Todo List ({this.props.incompleteCount})</h1>
+	return (
+	    <div>
+            <nav className="navbar navbar-inverse navbar-fixed-top">
+                <div className="container">
+                    <div className="navbar-header">
+                        <text className="navbar-brand">Bit Flags</text>
 
-          <label className="hide-completed">
-            <input
-              type="checkbox"
-              readOnly
-              checked={this.state.hideCompleted}
-              onClick={this.toggleHideCompleted.bind(this)}
-            />
-            Hide Completed Tasks
-          </label>
-
-          <AccountsUIWrapper />
-
-          <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
-            <input
-              type="text"
-              ref="textInput"
-              placeholder="Type to add new tasks"
-            />
-          </form>
-        </header>
- 
-        <ul>
-          {this.renderTasks()}
-        </ul>
-      </div>
-    );
+                        <form className="navbar-form navbar-left">
+                            <div className="form-group">
+                                <input
+                                    className="form-control"
+                                    list="categories"
+                                    placeholder="Pick a flag type"
+                                    onInput={this.updateCategory.bind(this)}
+                                />
+                                <datalist id="categories">
+                                    {this.renderCategories()}
+                                </datalist>
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="text"
+                                    ref="textInput"
+                                    className="form-control"
+                                    placeholder="Enter the flag value"
+                                    onInput={this.handleInput.bind(this)}
+                                />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div className="jumbotron">
+                <div className="container">
+                    {this.renderSelectedCategory()}
+                </div>
+            </div>
+        </div>
+	);
   }
 }
 
 App.propTypes = {
-  tasks: PropTypes.array.isRequired,
-  incompleteCount: PropTypes.number.isRequired,
+    // This component gets the task to display through a React prop.
+    // We can use propTypes to indicate it is required
+    data: PropTypes.object.isRequired,
 };
- 
-export default createContainer(() => {
-  return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-  };
-}, App);
