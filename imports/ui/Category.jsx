@@ -1,18 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 
-import bigInt from "../api/BigInteger.js";
-import hexToDec from "../api/HexToDec.js";
+import {bigInt} from "../api/BigInteger.js";
+import {hexToDec} from "../api/HexToDec.js";
 
 import Flag from './Flag.jsx';
 
 // Category component - represents a set of flags
 export default class Category extends Component {
     filterFlags(flags) {
-        return this.props.input.compare(bigInt.bigInt(0)) == 0
+        return this.props.input.compare(bigInt(0)) == 0
         ? flags
         : flags.filter((flag) => {
             let value = (flag.value.substring(0, 2) === '0x') ? hexToDec(flag.value) : flag.value;
-            return bigInt.bigInt(value).and(this.props.input) > 0;
+            return bigInt(value).and(this.props.input) > 0;
         });
     }
 

@@ -14,7 +14,7 @@
  * 1024 = [4, 2, 0, 1]
  */
 
-var hexToDec = (function (undefined) {
+
 
     // Adds two arrays for the given base (10 or 16), returning the result.
     // This turns out to be the only "primitive" operation we need.
@@ -90,9 +90,9 @@ var hexToDec = (function (undefined) {
         return hex ? '0x' + hex : null;
     }
 
-    function hexToDec(hexStr) {
+    export function hexToDec(hexStr) {
         if (hexStr.substring(0, 2) === '0x') hexStr = hexStr.substring(2);
         hexStr = hexStr.toLowerCase();
         return convertBase(hexStr, 16, 10);
     }
-})();
+

@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import bigInt from "../api/BigInteger.js";
-import hexToDec from "../api/HexToDec.js";
+import {bigInt} from "../api/BigInteger.js";
+import {hexToDec} from "../api/HexToDec.js";
 
 import Category from './Category.jsx';
 
@@ -13,7 +13,7 @@ export default class App extends Component {
 
         this.state = {
             selectedCategory: this.props.data.categories.length ? this.props.data.categories[0].label : "",
-            input:bigInt.bigInt(0)
+            input:bigInt(0)
         };
     }
 
@@ -21,7 +21,7 @@ export default class App extends Component {
         e.preventDefault();
         let inStr = e.target.value;
         let newValue = (inStr.substring(0, 2) === '0x') ? hexToDec(inStr) : inStr;
-        this.setState({input: bigInt.bigInt(newValue)});
+        this.setState({input: bigInt(newValue)});
     }
 
     updateCategory(e) {
